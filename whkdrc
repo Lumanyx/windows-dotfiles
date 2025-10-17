@@ -1,0 +1,86 @@
+.shell powershell
+
+# Reload whkd configuration
+# alt + o                 : taskkill /f /im whkd.exe && start /b whkd # if shell is cmd
+alt + o                 : taskkill /f /im whkd.exe; Start-Process whkd -WindowStyle hidden # if shell is pwsh / powershell
+alt + shift + o         : komorebic reload-configuration
+
+alt + i                 : komorebic toggle-shortcuts
+
+# App shortcuts - these require shell to be pwsh / powershell
+# The apps will be focused if open, or launched if not open
+# alt + f                 : if ($wshell.AppActivate('Firefox') -eq $False) { start firefox }
+# alt + b                 : if ($wshell.AppActivate('Chrome') -eq $False) { start chrome }
+
+lwin + q                 : komorebic close
+lwin + m                 : komorebic minimize
+
+# Focus windows
+lwin + left                 : komorebic focus left
+lwin + down                 : komorebic focus down
+lwin + up                 : komorebic focus up
+lwin + right                 : komorebic focus right
+alt + shift + oem_4     : komorebic cycle-focus previous # oem_4 is [
+alt + shift + oem_6     : komorebic cycle-focus next # oem_6 is ]
+
+# Move windows
+lwin + control + left         : komorebic move left
+lwin + control + down         : komorebic move down
+lwin + control + up           : komorebic move up
+lwin + control + right        : komorebic move right
+
+# Stack windows
+# alt + left              : komorebic stack left
+# alt + down              : komorebic stack down
+# alt + up                : komorebic stack up
+# alt + right             : komorebic stack right
+# alt + oem_1             : komorebic unstack # oem_1 is ;
+# alt + oem_4             : komorebic cycle-stack previous # oem_4 is [
+# alt + oem_6             : komorebic cycle-stack next # oem_6 is ]
+
+# Resize
+lwin + shift + left          : komorebic resize-edge left increase
+lwin + shift + right         : komorebic resize-edge right increase
+lwin + shift + up          : komorebic resize-edge up increase
+lwin + shift + down         : komorebic resize-edge down increase
+
+# Manipulate windows
+alt + v                 : komorebic toggle-float
+lwin + return            : komorebic toggle-monocle
+
+# Window manager options
+alt + shift + r         : komorebic retile
+alt + p                 : komorebic toggle-pause
+
+# Layouts
+alt + x                 : komorebic flip-layout horizontal
+alt + y                 : komorebic flip-layout vertical
+
+# Workspaces
+lwin + 1                 : komorebic focus-workspace 0
+lwin + 2                 : komorebic focus-workspace 1
+lwin + 3                 : komorebic focus-workspace 2
+lwin + 4                 : komorebic focus-workspace 3
+lwin + 5                 : komorebic focus-workspace 4
+lwin + 6                 : komorebic focus-workspace 5
+lwin + 7                 : komorebic focus-workspace 6
+lwin + 8                 : komorebic focus-workspace 7
+lwin + 9                 : komorebic focus-workspace 8
+
+# Move windows across workspaces
+lwin + shift + 1         : komorebic move-to-workspace 0
+lwin + shift + 2         : komorebic move-to-workspace 1
+lwin + shift + 3         : komorebic move-to-workspace 2
+lwin + shift + 4         : komorebic move-to-workspace 3
+lwin + shift + 5         : komorebic move-to-workspace 4
+lwin + shift + 6         : komorebic move-to-workspace 5
+lwin + shift + 7         : komorebic move-to-workspace 6
+lwin + shift + 8         : komorebic move-to-workspace 7
+lwin + shift + 9         : komorebic move-to-workspace 8
+
+lwin + f : explorer.exe
+lwin + b : C:\"Program Files"\Google\Chrome\Application\chrome.exe
+lwin + t : C:\"Program Files"\Alacritty\alacritty.exe
+lwin + shift + t : C:\"Program Files"\Alacritty\alacritty.exe
+lwin + tab : komorebic cycle-workspace next
+lwin + shift + tab : komorebic cycle-workspace previous
