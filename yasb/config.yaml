@@ -55,7 +55,7 @@ widgets:
   home:
     type: "yasb.home.HomeWidget"
     options:
-      label: "<span>\udb81\udf17</span>"
+      label: "<span>\ue62a</span>"
       menu_list:
       - { title: "User Home", path: "~" }
       - { title: "Download", path: "~\\Downloads" }
@@ -105,7 +105,7 @@ widgets:
         offset: [ 1, 1 ]
       scrolling_label:
         enabled: true
-        update_interval_ms: 50
+        update_interval_ms: 40
         style: "left"  # can be "left", "right", "bounce", "bounce-ease"
         separator: " | "
         label_padding: 1
@@ -155,7 +155,8 @@ widgets:
         enabled_active: true
         hide_label: false
         max_icons: 6
-        size: 16
+        size: 12
+        max_title_length: 30
     btn_shadow:
       enabled: true
       color: "black"
@@ -296,12 +297,16 @@ widgets:
     options:
       label: "\uf011"
       uptime: True
-      blur: False
+      blur: True
       blur_background: True
       animation_duration: 200
-      button_row: 5
+      button_row: 7
+      sync_command: "cmd /k cd /d D:\\PixelSync && ForceUploadAll.bat"
+      sync_and_shutdown_command: "cmd /k cd /d D:\\PixelSync && ForceUploadAllAndShutdown.bat"
       buttons:
-        shutdown: ["\uf011", "Shut Down"]
+        sync_and_shutdown: ["\u23fb", "Sync & Shut Down"]
+        sync: ["\udb81\udce6", "Sync Files"]
+        shutdown: ["\uf011", "Shut Down w/o Sync"]
         restart: ["\uead2", "Restart"]
         signout: ["\udb80\udf43", "Sign out"]
         hibernate: ["\uf28e", "Hibernate"]

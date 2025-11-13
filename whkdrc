@@ -77,10 +77,11 @@ lwin + shift + 6         : komorebic move-to-workspace 5
 lwin + shift + 7         : komorebic move-to-workspace 6
 lwin + shift + 8         : komorebic move-to-workspace 7
 lwin + shift + 9         : komorebic move-to-workspace 8
+lwin + h                 : komorebic minimize
 
 lwin + f : explorer.exe
 lwin + b : C:\"Program Files"\Google\Chrome\Application\chrome.exe
-lwin + t : C:\"Program Files"\Alacritty\alacritty.exe
-lwin + shift + t : C:\"Program Files"\Alacritty\alacritty.exe
+lwin + t : wt
+lwin + shift + t : wt
 lwin + tab : komorebic cycle-workspace next
 lwin + shift + tab : komorebic cycle-workspace previous
