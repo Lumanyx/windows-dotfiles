@@ -14,12 +14,13 @@ For more information about configuration options, please visit the Wiki https://
     --text4: #7f849c;
     --bg-color1: #191919;
     --bg-color2: #111111;
+	--icon-size: 20px;
 }
 * {
     font-size: 12px;
     color: var(--text1);
     font-weight: 600;
-    font-family: "Geist";
+    font-family: "DejaVu Sans";
 }
 .yasb-bar {
     background-color: rgba(0,0,0,0.45);
@@ -33,7 +34,7 @@ For more information about configuration options, please visit the Wiki https://
     color: var(--text1);
     padding: 5px 10px;
     font-size: 12px;
-    font-family: 'Segoe UI';
+    font-family: 'DejaVu Sans';
     font-weight: 600;
     margin-top: 4px;
 }
@@ -43,7 +44,7 @@ For more information about configuration options, please visit the Wiki https://
     background-color: var(--bg-color1);
     border: none;
     padding: 4px 0px;
-    font-family: 'Segoe UI';
+    font-family: 'DejaVu Sans';
     font-size: 12px;
     color: var(--text1)
 }
@@ -123,6 +124,9 @@ For more information about configuration options, please visit the Wiki https://
 .komorebi-active-layout {
     padding: 0
 }
+.komorebi-workspaces {
+	padding: 0 0 0 2px;
+}
 .komorebi-workspaces .offline-status {
     color: var(--text4);
     font-size: 12px;
@@ -141,12 +145,19 @@ For more information about configuration options, please visit the Wiki https://
     color: var(--text2);
 }
 .komorebi-workspaces .ws-btn.populated {
-    background-color: rgba(255,255,255,0.2)
+    background-color: rgba(255,255,255,0.125);
+}
+.komorebi-workspaces .ws-btn.populated:hover {
+    background-color: rgba(255,255,255,0.25);
 }
 .komorebi-workspaces .ws-btn.active {
-    background-color: #3461b3;
+    background-color: #2c6adb;
     width: 36px;
 }
+.komorebi-workspaces .ws-btn.active:hover {
+    background-color: #2e78ff;
+}
+
 .power-menu-widget .label {
     color: #f38ba8;
     font-size: 13px;
@@ -178,7 +189,7 @@ For more information about configuration options, please visit the Wiki https://
     font-size: 64px;
     padding-top: 32px;
     color: var(--text4);
-    font-family: "JetBrainsMono NFP";
+    font-family: "DejaVu Sans Mono NFP";
 }
 .power-menu-popup .button.hover .label,
 .power-menu-popup .button.hover .icon {
@@ -187,12 +198,12 @@ For more information about configuration options, please visit the Wiki https://
 .power-menu-popup .button.cancel .icon {
     padding: 0;
     margin: 0;
-    font-family: "JetBrainsMono NFP";
+    font-family: "DejaVu Sans Mono NFP";
 }
 .power-menu-popup .button.cancel .label {
     color: var(--red);
     margin: 0;
-    font-family: "JetBrainsMono NFP";
+    font-family: "DejaVu Sans Mono NFP";
 }
 .power-menu-popup .button.cancel {
     height: 32px;
@@ -211,15 +222,16 @@ For more information about configuration options, please visit the Wiki https://
     padding: 0 6px 0 6px;
 }
 .microphone-widget .icon {
-    font-size: 18px;
-    font-family: "JetBrainsMono NFP";
+    font-family: "DejaVu Sans Mono NFP";
+	font-size: var(--icon-size);
 }
 .microphone-widget .icon {
     color: var(--mauve);
-    font-family: "JetBrainsMono NFP";
+    font-family: "DejaVu Sans Mono NFP";
+	font-size: var(--icon-size);
 }
 .volume-widget .icon {
-    font-size: 17px;
+	font-size: var(--icon-size);
     color: var(--blue);
     margin: 0px 2px 0 0;
 }
@@ -284,9 +296,9 @@ For more information about configuration options, please visit the Wiki https://
     color: #7a7f8b;
     padding: 0 4px;
     margin: 0;
-    font-family: "JetBrainsMono NFP";
+    font-family: "DejaVu Sans Mono NFP";
     font-weight: 400;
-    font-size: 20px;
+	font-size: var(--icon-size);
 }
 .media-widget .btn:hover {
     color: #babfd3;
@@ -424,7 +436,7 @@ For more information about configuration options, please visit the Wiki https://
 .home-menu .menu-item {
     padding: 8px 48px 9px 16px;
     font-size: 12px;
-    font-family: 'Segoe UI';
+    font-family: 'DejaVu Sans';
     color: var(--text1);
     font-weight: 600;
 }
@@ -443,7 +455,8 @@ For more information about configuration options, please visit the Wiki https://
     font-size: 14px;
 }
 .notification-widget .icon.new-notification {
-    font-family: "JetBrainsMono NFP";
+    font-family: "DejaVu Sans Mono NFP";
+	font-size: var(--icon-size);
     color: var(--blue);
 }
 
@@ -456,7 +469,7 @@ For more information about configuration options, please visit the Wiki https://
 .calendar .calendar-table::item {
     background-color: rgba(17, 17, 27, 0);
     color: rgba(162, 177, 196, 0.85);
-    font-family: "Segoe UI";
+    font-family: "DejaVu Sans";
     margin: 0;
     padding: 0;
     border: none;
@@ -475,7 +488,7 @@ For more information about configuration options, please visit the Wiki https://
 .calendar .date-label,
 .calendar .week-label,
 .calendar .holiday-label {
-    font-family: "Segoe UI";
+    font-family: "DejaVu Sans";
     font-size: 16px;
     color: #fff;
     font-weight: 700;
