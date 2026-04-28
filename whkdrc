@@ -82,6 +82,6 @@ lwin + h                 : komorebic minimize
 lwin + f : explorer.exe
 lwin + b : C:\"Program Files"\Google\Chrome\Application\chrome.exe
 lwin + t : wt
-lwin + shift + t : wt
+lwin + shift + t : powershell -Command "Start-Process 'wt.exe' -Verb RunAs"
 lwin + tab : komorebic cycle-workspace next
 lwin + shift + tab : komorebic cycle-workspace previous
