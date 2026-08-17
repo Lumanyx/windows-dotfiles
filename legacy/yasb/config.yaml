@@ -4,10 +4,10 @@ watch_stylesheet: true
 watch_config: true
 debug: false
 update_check: true # Enable automatic update check.
-glazewm:
-  start_command: "glazewm.exe start"
-  stop_command: "glazewm.exe command wm-exit"
-  reload_command: "glazewm.exe command wm-exit && glazewm.exe start"
+komorebi:
+  start_command: "komorebic start --whkd"
+  stop_command: "komorebic stop --whkd"
+  reload_command: "komorebic stop --whkd && komorebic start --whkd"
 bars:
   primary-bar:
     enabled: true
@@ -39,12 +39,14 @@ bars:
       right: 8
     widgets:
       left:
-      - "glazewm_workspaces"
+      - "komorebi_workspaces"
       center:
       - "clock"
       right:
+      - "weather"
       - "microphone"
       - "volume"
+      - "notifications"
       - "power_menu"
 widgets:
   home:
@@ -122,7 +124,7 @@ widgets:
   clock:
     type: "yasb.clock.ClockWidget"
     options:
-      label: "{%a, %d %b %H:%M:%S}"
+      label: "{%a, %d %b %H:%M}"
       label_alt: "{%A, %d %B %Y %H:%M}"
       timezones: []
       calendar: 
@@ -133,31 +135,6 @@ widgets:
       callbacks:
         on_left: "toggle_calendar"
         on_right: "toggle_label"
-  glazewm_workspaces:
-    type: "glazewm.workspaces.GlazewmWorkspacesWidget"
-    options:
-      empty_label: ""
-      active_empty_label: ""
-      populated_label: "{name}"
-      
-      offline_label: "GlazeWM Offline"
-      hide_if_offline: true
-      monitor_exclusive: true
-      enable_scroll_switching: false
-      app_icons: 
-        enabled_populated: true
-        enabled_active: true
-        size: 10
-        max_icons: 5
-        hide_label: false
-        hide_duplicates: false
-        hide_floating: false
-    
-      # By default workspace names are fetched from GlazeWM and "display_name" option takes priority over "name".
-      # However, you can customize populated and empty labels here using {name} and {display_name} placeholders if needed.
-      # {name} will be replaced with workspace name (index) from GlazeWM.
-      # {display_name} will be replaced with workspace display_name from GlazeWM.
-    
   komorebi_workspaces:
     type: "komorebi.workspaces.WorkspaceWidget"
     options:
@@ -215,6 +192,50 @@ widgets:
         on_left: "next_layout"
         on_middle: "toggle_monocle"
         on_right: "prev_layout"
+  weather:
+    type: "yasb.weather.WeatherWidget"
+    options:
+      label: "<span>{icon}</span> {temp}"
+      label_alt: "{location}: Min {min_temp}, Max {max_temp}, Humidity {humidity}"
+      api_key: env
+      update_interval: 600
+      hide_decimal: true
+      location: env
+      callbacks:
+        on_left: "toggle_card"
+        on_middle: "do_nothing"
+        on_right: "toggle_label"
+      icons:
+        sunnyDay: "\ue30d"
+        clearNight: "\ue32b"
+        cloudyDay: "\ue312"
+        cloudyNight: "\ue311"
+        rainyDay: "\ue308"
+        rainyNight: "\ue333"
+        snowyIcyDay: "\ue30a"
+        snowyIcyNight: "\ue335"
+        blizzardDay: "\udb83\udf36"
+        blizzardNight: "\udb83\udf36"
+        foggyDay: "\ue303"
+        foggyNight: "\ue346"
+        thunderstormDay: "\ue30f"
+        thunderstormNight: "\ue338"
+        default: "\uebaa"
+      weather_card:
+        blur: false
+        round_corners: false
+        alignment: "right"
+        direction: "down"
+        icon_size: 64
+        show_hourly_forecast: true
+        time_format: "24h"
+        hourly_point_spacing: 76
+        hourly_icon_size: 32
+        icon_smoothing: true
+        temp_line_width: 2
+        current_line_color: "#8EAEE8"
+        current_line_width: 1
+        current_line_style: "dot"
   systray:
     type: "yasb.systray.SystrayWidget"
     options:
@@ -276,13 +297,12 @@ widgets:
       blur: True
       blur_background: True
       animation_duration: 200
-      # button_row: 7
-      button_row: 6
-      # sync_command: "cmd /k cd /d D:\\PixelSync && ForceUploadAll.bat"
-      # sync_and_shutdown_command: "cmd /k cd /d D:\\PixelSync && ForceUploadAllAndShutdown.bat"
+      button_row: 7
+      sync_command: "cmd /k cd /d D:\\PixelSync && ForceUploadAll.bat"
+      sync_and_shutdown_command: "cmd /k cd /d D:\\PixelSync && ForceUploadAllAndShutdown.bat"
       buttons:
-        # sync_and_shutdown: ["\u23fb", "Sync & Shut Down"]
-        # sync: ["\udb81\udce6", "Sync Files"]
+        sync_and_shutdown: ["\u23fb", "Sync & Shut Down"]
+        sync: ["\udb81\udce6", "Sync Files"]
         shutdown: ["\uf011", "Shut Down w/o Sync"]
         restart: ["\uead2", "Restart"]
         signout: ["\udb80\udf43", "Sign out"]

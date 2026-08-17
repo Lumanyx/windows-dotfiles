@@ -5,83 +5,59 @@
 alt + o                 : taskkill /f /im whkd.exe; Start-Process whkd -WindowStyle hidden # if shell is pwsh / powershell
 alt + shift + o         : komorebic reload-configuration
 
-alt + i                 : komorebic toggle-shortcuts
-
-# App shortcuts - these require shell to be pwsh / powershell
-# The apps will be focused if open, or launched if not open
-# alt + f                 : if ($wshell.AppActivate('Firefox') -eq $False) { start firefox }
-# alt + b                 : if ($wshell.AppActivate('Chrome') -eq $False) { start chrome }
-
-lwin + q                 : komorebic close
-lwin + m                 : komorebic minimize
+lwin + q                      : glazewm command close
+lwin + m                      : glazewm command close
 
 # Focus windows
-lwin + left                 : komorebic focus left
-lwin + down                 : komorebic focus down
-lwin + up                 : komorebic focus up
-lwin + right                 : komorebic focus right
-alt + shift + oem_4     : komorebic cycle-focus previous # oem_4 is [
-alt + shift + oem_6     : komorebic cycle-focus next # oem_6 is ]
+lwin + left                   : glazewm command focus --direction left
+lwin + down                   : glazewm command focus --direction down
+lwin + up                     : glazewm command focus --direction up
+lwin + right                  : glazewm command focus --direction right
 
 # Move windows
-lwin + control + left         : komorebic move left
-lwin + control + down         : komorebic move down
-lwin + control + up           : komorebic move up
-lwin + control + right        : komorebic move right
-
-# Stack windows
-# alt + left              : komorebic stack left
-# alt + down              : komorebic stack down
-# alt + up                : komorebic stack up
-# alt + right             : komorebic stack right
-# alt + oem_1             : komorebic unstack # oem_1 is ;
-# alt + oem_4             : komorebic cycle-stack previous # oem_4 is [
-# alt + oem_6             : komorebic cycle-stack next # oem_6 is ]
+lwin + control + left         : glazewm command move --direction left
+lwin + control + down         : glazewm command move --direction down
+lwin + control + up           : glazewm command move --direction up
+lwin + control + right        : glazewm command move --direction right
 
 # Resize
-lwin + shift + left          : komorebic resize-edge left increase
-lwin + shift + right         : komorebic resize-edge right increase
-lwin + shift + up          : komorebic resize-edge up increase
-lwin + shift + down         : komorebic resize-edge down increase
+lwin + shift + left           : glazewm command resize --width +2%
+lwin + shift + right          : glazewm command resize --width -2%
+lwin + shift + up             : glazewm command resize --height -2%
+lwin + shift + down           : glazewm command resize --height +2%
 
 # Manipulate windows
-alt + v                 : komorebic toggle-float
-lwin + return            : komorebic toggle-monocle
-
-# Window manager options
-alt + shift + r         : komorebic retile
-alt + p                 : komorebic toggle-pause
-
-# Layouts
-alt + x                 : komorebic flip-layout horizontal
-alt + y                 : komorebic flip-layout vertical
+alt + v                       : glazewm command toggle-floating
+lwin + return                 : glazewm command toggle-fullscreen
 
 # Workspaces
-lwin + 1                 : komorebic focus-workspace 0
-lwin + 2                 : komorebic focus-workspace 1
-lwin + 3                 : komorebic focus-workspace 2
-lwin + 4                 : komorebic focus-workspace 3
-lwin + 5                 : komorebic focus-workspace 4
-lwin + 6                 : komorebic focus-workspace 5
-lwin + 7                 : komorebic focus-workspace 6
-lwin + 8                 : komorebic focus-workspace 7
-lwin + 9                 : komorebic focus-workspace 8
+lwin + 1                      : glazewm_helper.ps1 focus_workspace 0
+lwin + 2                      : glazewm_helper.ps1 focus_workspace 1
+lwin + 3                      : glazewm_helper.ps1 focus_workspace 2
+lwin + 4                      : glazewm_helper.ps1 focus_workspace 3
+lwin + 5                      : glazewm_helper.ps1 focus_workspace 4
+lwin + 6                      : glazewm_helper.ps1 focus_workspace 5
+lwin + 7                      : glazewm_helper.ps1 focus_workspace 6
+lwin + 8                      : glazewm_helper.ps1 focus_workspace 7
+lwin + 9                      : glazewm_helper.ps1 focus_workspace 8
+lwin + 0                      : glazewm_helper.ps1 focus_workspace 9
 
 # Move windows across workspaces
-lwin + shift + 1         : komorebic move-to-workspace 0
-lwin + shift + 2         : komorebic move-to-workspace 1
-lwin + shift + 3         : komorebic move-to-workspace 2
-lwin + shift + 4         : komorebic move-to-workspace 3
-lwin + shift + 5         : komorebic move-to-workspace 4
-lwin + shift + 6         : komorebic move-to-workspace 5
-lwin + shift + 7         : komorebic move-to-workspace 6
-lwin + shift + 8         : komorebic move-to-workspace 7
-lwin + shift + 9         : komorebic move-to-workspace 8
-lwin + h                 : komorebic minimize
+lwin + shift + 1              : glazewm_helper.ps1 move_active_window_to_workspace 0
+lwin + shift + 2              : glazewm_helper.ps1 move_active_window_to_workspace 1
+lwin + shift + 3              : glazewm_helper.ps1 move_active_window_to_workspace 2
+lwin + shift + 4              : glazewm_helper.ps1 move_active_window_to_workspace 3
+lwin + shift + 5              : glazewm_helper.ps1 move_active_window_to_workspace 4
+lwin + shift + 6              : glazewm_helper.ps1 move_active_window_to_workspace 5
+lwin + shift + 7              : glazewm_helper.ps1 move_active_window_to_workspace 6
+lwin + shift + 8              : glazewm_helper.ps1 move_active_window_to_workspace 7
+lwin + shift + 9              : glazewm_helper.ps1 move_active_window_to_workspace 8
+lwin + shift + 0              : glazewm_helper.ps1 move_active_window_to_workspace 9
+lwin + h                      : komorebic minimize
 
 lwin + f : explorer.exe
 lwin + b : C:\"Program Files"\Google\Chrome\Application\chrome.exe
 lwin + t : wt
 lwin + shift + t : powershell -Command "Start-Process 'wt.exe' -Verb RunAs"
-lwin + tab : komorebic cycle-workspace next
-lwin + shift + tab : komorebic cycle-workspace previous
+lwin + tab : glazewm_helper.ps1 focus_workspace_relative 1
+lwin + shift + tab : glazewm_helper.ps1 focus_workspace_relative -1
