@@ -2,10 +2,10 @@
 
 ; Any Win + Any Shift + Mouse Wheel Up
 #+WheelUp:: {
-    Run('up.vbs')
+    Run('glaze_ext_client.exe move_active_window_to_workspace_relative -1')
 }
 
 ; Any Win + Any Shift + Mouse Wheel Down
 #+WheelDown:: {
-    Run('down.vbs')
+    Run('glaze_ext_client.exe move_active_window_to_workspace_relative 1')
 }
